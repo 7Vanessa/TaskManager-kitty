@@ -47,24 +47,7 @@ public class Main {
                     "    o <id> Set the status of the task matching the id to \"to do\"\n" +
                     "    q Exit the interaction loop\n");
             action = myObj.nextLine();
-
-            switch (action.trim().charAt(0)) {
-                case '+':
-                    taskManager.addTask(action.substring(1).trim());
-                    break;
-                case '-':
-                    taskManager.removeTask(findInteger(action));
-                    break;
-                case 'x':
-                    taskManager.taskDone(findInteger(action));
-                    break;
-                case 'o':
-                    taskManager.taskToDo(findInteger(action));
-                    break;
-                default:
-                    System.out.println("Retry");
-                    break;
-            }
+            taskManager.parseAction(action);
         } while (!(action.equals("q") || action.equals("Q")));
 
     }

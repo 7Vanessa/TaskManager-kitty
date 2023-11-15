@@ -22,6 +22,12 @@ public class TaskManager {
             case 'x':
                 taskToDo(findInteger(action));
                 break;
+            case 'o':
+                taskDone(findInteger(action));
+                break;
+            default:
+                System.out.println("Retry");
+                break;
         }
     }
 
