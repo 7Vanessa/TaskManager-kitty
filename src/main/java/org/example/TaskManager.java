@@ -19,6 +19,9 @@ public class TaskManager {
             case '-':
                 removeTask(findInteger(action));
                 break;
+            case 'x':
+                taskToDo(findInteger(action));
+                break;
         }
     }
 

@@ -67,4 +67,14 @@ public class TaskManagerTest {
         taskManager.parseAction("- 1");
         Assert.assertTrue(taskManager.isEmpty());
     }
+
+    @Test
+    public void testParseSetStatusToDoAction() {
+        TaskManager taskManager = new TaskManager();
+        taskManager.addTask("first task");
+        taskManager.taskDone(1);
+        Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
+        taskManager.parseAction("x 1");
+        Assert.assertEquals(Status.TODO, taskManager.getTaskbyIndex(0).getStatus());
+    }
 }
