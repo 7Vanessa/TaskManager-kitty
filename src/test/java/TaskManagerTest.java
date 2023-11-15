@@ -4,6 +4,8 @@ import org.example.TaskManager;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.mockito.Mockito.*;
+
 public class TaskManagerTest {
 
     @Test
@@ -48,5 +50,12 @@ public class TaskManagerTest {
         Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
         taskManager.taskToDo(1);
         Assert.assertEquals(Status.TODO, taskManager.getTaskbyIndex(0).getStatus());
+    }
+
+    @Test
+    public void testParseAddTaskAction() {
+        TaskManager taskManager = new TaskManager();
+        taskManager.parseAction("+ my task");
+        Assert.assertEquals("my task", taskManager.getTaskbyIndex(0).getDescription());
     }
 }

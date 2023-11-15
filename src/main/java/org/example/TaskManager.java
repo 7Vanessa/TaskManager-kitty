@@ -11,6 +11,14 @@ public class TaskManager {
         taskList = new ArrayList<>();
     }
 
+    public void parseAction(String action) {
+        switch (action.trim().charAt(0)) {
+            case '+':
+                addTask(action.substring(1).trim());
+                break;
+        }
+    }
+
     public List<Task> getTaskList() {
         return taskList;
     }
