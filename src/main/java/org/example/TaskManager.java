@@ -16,7 +16,34 @@ public class TaskManager {
             case '+':
                 addTask(action.substring(1).trim());
                 break;
+            case '-':
+                removeTask(findInteger(action));
+                break;
         }
+    }
+
+    private static int findInteger(String input) {
+        StringBuilder intBuilder = new StringBuilder();
+        boolean foundDigit = false;
+
+        for (char c : input.toCharArray()) {
+            if (Character.isDigit(c)) {
+                intBuilder.append(c);
+                foundDigit = true;
+            } else if (foundDigit) {
+                break;
+            }
+        }
+
+        if (intBuilder.length() > 0) {
+            try {
+                return Integer.parseInt(intBuilder.toString());
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The string contains an invalid integer.");
+            }
+        }
+
+        return Integer.MIN_VALUE;
     }
 
     public List<Task> getTaskList() {

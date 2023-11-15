@@ -58,4 +58,13 @@ public class TaskManagerTest {
         taskManager.parseAction("+ my task");
         Assert.assertEquals("my task", taskManager.getTaskbyIndex(0).getDescription());
     }
+
+    @Test
+    public void testParseRemoveTaskAction() {
+        String description = "my task";
+        TaskManager taskManager = new TaskManager();
+        taskManager.addTask(description.trim());
+        taskManager.parseAction("- 1");
+        Assert.assertTrue(taskManager.isEmpty());
+    }
 }
