@@ -11,6 +11,10 @@ public class TaskManager {
         taskList = new ArrayList<>();
     }
 
+    public TaskManager(List<Task> tasks) {
+        taskList = tasks;
+    }
+
     public void parseAction(String action) {
         switch (action.trim().charAt(0)) {
             case '+':

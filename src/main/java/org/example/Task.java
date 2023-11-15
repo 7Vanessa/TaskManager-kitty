@@ -11,6 +11,12 @@ public class Task {
         status = Status.TODO;
     }
 
+    public Task(String description, int id, Status status) {
+        this.description = description;
+        this.id = id;
+        this.status = status;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }

@@ -1,7 +1,11 @@
 import org.example.Status;
+import org.example.Task;
 import org.example.TaskManager;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskManagerTest {
 
@@ -41,10 +45,10 @@ public class TaskManagerTest {
 
     @Test
     public void testSetStatusToDo() {
-        TaskManager taskManager = new TaskManager();
-        taskManager.addTask("first task");
-        taskManager.taskDone(1);
-        Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
+        List<Task> taskList = new ArrayList<>();
+        Task task = new Task("my task", 1, Status.DONE);
+        taskList.add(task);
+        TaskManager taskManager = new TaskManager(taskList);
         taskManager.taskToDo(1);
         Assert.assertEquals(Status.TODO, taskManager.getTaskbyIndex(0).getStatus());
     }
@@ -67,10 +71,10 @@ public class TaskManagerTest {
 
     @Test
     public void testParseSetStatusToDoAction() {
-        TaskManager taskManager = new TaskManager();
-        taskManager.addTask("first task");
-        taskManager.taskDone(1);
-        Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
+        List<Task> taskList = new ArrayList<>();
+        Task task = new Task("my task", 1, Status.DONE);
+        taskList.add(task);
+        TaskManager taskManager = new TaskManager(taskList);
         taskManager.parseAction("x 1");
         Assert.assertEquals(Status.TODO, taskManager.getTaskbyIndex(0).getStatus());
     }
