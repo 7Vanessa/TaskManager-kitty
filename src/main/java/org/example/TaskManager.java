@@ -24,6 +24,9 @@ public class TaskManager {
         taskList.add(newTask);
     }
 
+    public void removeTask(int id) {
+        taskList.removeIf(task -> task.getId() == id);
+    }
 
     public Boolean isEmpty() {
         return taskList.size() == 0;
