@@ -40,4 +40,13 @@ public class TaskManagerTest {
         Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
     }
 
+    @Test
+    public void testSetStatusToDo() {
+        TaskManager taskManager = new TaskManager();
+        taskManager.addTask("first task");
+        taskManager.taskDone(1);
+        Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
+        taskManager.taskToDo(1);
+        Assert.assertEquals(Status.TODO, taskManager.getTaskbyIndex(0).getStatus());
+    }
 }

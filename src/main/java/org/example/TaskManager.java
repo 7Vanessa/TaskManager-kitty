@@ -35,6 +35,13 @@ public class TaskManager {
         }
     }
 
+    public void taskToDo(int id) {
+        for (Task task: taskList) {
+            if(task.getId() == id)
+                task.setStatus(Status.TODO);
+        }
+    }
+
     public Boolean isEmpty() {
         return taskList.size() == 0;
     }
