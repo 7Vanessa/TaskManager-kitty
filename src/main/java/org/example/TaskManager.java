@@ -28,6 +28,13 @@ public class TaskManager {
         taskList.removeIf(task -> task.getId() == id);
     }
 
+    public void taskDone(int id) {
+        for (Task task: taskList) {
+            if(task.getId() == id)
+                task.setStatus(Status.DONE);
+        }
+    }
+
     public Boolean isEmpty() {
         return taskList.size() == 0;
     }

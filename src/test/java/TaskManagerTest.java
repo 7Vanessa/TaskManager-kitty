@@ -1,3 +1,4 @@
+import org.example.Status;
 import org.example.Task;
 import org.example.TaskManager;
 import org.junit.Assert;
@@ -30,4 +31,13 @@ public class TaskManagerTest {
         taskManager.removeTask(2);
         Assert.assertFalse(taskManager.isEmpty());
     }
+
+    @Test
+    public void testSetStatusDone() {
+        TaskManager taskManager = new TaskManager();
+        taskManager.addTask("first task");
+        taskManager.taskDone(1);
+        Assert.assertEquals(Status.DONE, taskManager.getTaskbyIndex(0).getStatus());
+    }
+
 }
